@@ -147,6 +147,12 @@ autocmd VimEnter * if !argc() | Explore | endif
 " Open netrw only when the specified argument is a directory ($ vim /tmp):
 autocmd VimEnter * if isdirectory(expand('<afile>')) | Explore | endif
 
+" Remove ctrlp_user_command so that wildignore is used
+" As per https://stackoverflow.com/questions/21017857/ctrlp-still-searches-the-ignored-directory
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+
 set wildignore+=*/tmp/*,*/bower_components/*,*/node_modules/*,*/dist/*,*.so,*.swp,*.zip,*/generated_js/*
 
 " CtrlP
