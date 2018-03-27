@@ -1,0 +1,25 @@
+## General
+
+# Reload .zshrc and .alias
+alias reload="source ~/.zshrc && source ~/.alias"
+
+# Print path split in separate lines
+alias path='echo -e ${PATH//:/\\n}'
+
+# Shortcuts for tree
+alias tree="tree -a"
+alias treed="tree -d"
+alias treed1="tree -d -L 1"
+alias treed2="tree -d -L 2"
+
+
+## Network
+
+# Get IP
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Get local IP
+alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+# Speed test (downloads 100mb file)
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
