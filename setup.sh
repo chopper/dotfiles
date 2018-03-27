@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 backup_dir=~/dotfiles.backup
-files=".vimrc .tmux.conf"
+files=".vimrc .tmux.conf .zshrc"
 
 ### Setup
 
