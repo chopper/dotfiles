@@ -1,5 +1,7 @@
 function git_prompt_info() {
-  echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  if [ -d .git ]; then;
+    echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX";
+  fi;
 }
 
 local ret_status="%(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)$reset_color%"
