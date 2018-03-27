@@ -15,9 +15,9 @@ echo "Starting symlinking"
 for file in $files; do
     if [ -e ~/$file ]
     then
-    	echo -n "Moving $file into $backup_dir"
-	mv ~/$file $backup_dir
-	echo "done"
+        echo -n "Moving $file into $backup_dir"
+        mv ~/$file $backup_dir
+        echo "done"
     fi
 
     echo -n "Creating symlink from ~/$file to $dir/$file..."
@@ -27,3 +27,6 @@ done
 
 echo "Symlinking complete"
 echo ""
+
+## TODO
+# - symlink zsh theme
