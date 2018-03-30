@@ -51,11 +51,14 @@ ZSH_THEME="chopper"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -93,3 +96,5 @@ export PATH=/Users/chopper/go/bin:$PATH
 
 # Necessary for tmux to display color
 export TERM="screen-256color"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

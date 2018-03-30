@@ -3,6 +3,8 @@ function git_prompt_info() {
   # Redirecting output to /dev/null to silence error messages
   git -C . rev-parse &> /dev/null
 
+  # Show branch info if we are in a git repo (i.e. the command above returned
+  # status code 0)
   if [ $? == 0 ]; then;
     echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX ";
   fi;

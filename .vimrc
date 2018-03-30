@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-vinegar'
+Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'morhetz/gruvbox'
 Plugin 'airblade/vim-gitgutter'
@@ -36,10 +37,9 @@ filetype plugin indent on    " required
 
 " Select color scheme
 colorscheme gruvbox
-set background=dark
 
 " Turn on syntax highlighting
-syntax on
+" syntax on
 
 " Misc settings
 set nocompatible
@@ -89,9 +89,6 @@ noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
 
-" Quick ESC
-imap ;; <ESC>
-
 "Start an external command with a single bang
 nnoremap ! :!
 
@@ -124,7 +121,7 @@ nmap <leader>r :so ~/.vimrc<cr> " reload ~/.vimrc
 autocmd BufRead,BufNewFile *.handlebars,*.hbs set filetype=html syntax=handlebars
 autocmd BufRead,BufNewFile *.hbs.erb set filetype=eruby.html syntax=handlebars
 autocmd BufRead,BufNewFile *.coffee.erb set filetype=eruby.coffee syntax=coffee
-" autocmd BufRead,BufNewFile,BufEnter * syntax on " commented out, breaks custom higlights
+autocmd BufRead,BufNewFile,BufEnter * call UpdateColors()
 
 " Open netrw at startup if no argument was specified ($ vim):
 autocmd VimEnter * if !argc() | Explore | endif
@@ -147,8 +144,8 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 15
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '(\.git|bower_components|node_modules|tmp|dist|generated_js)$',
-    \ 'file': '\.(swp|git)$',
+    \ 'dir':  '(\.git\|bower_components\|node_modules\|tmp\|dist\|generated_js)$',
+    \ 'file': '\.(swp\|git)$',
     \ 'link': '',
     \ }
 
@@ -162,28 +159,35 @@ set wildignore+=*.swp
 set wildignore+=*.zip
 set wildignore+=*/generated_js/*
 
-" General colors
-hi VertSplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237
-hi Search ctermbg=58 ctermfg=15
-hi Default ctermfg=1
-hi EndOfBuffer ctermfg=237 ctermbg=235
-hi CursorLine ctermbg=236
+function! UpdateColors()
+  syntax on
 
-" Colors for gitgutter
-hi clear SignColumn
-hi SignColumn ctermbg=235
-hi GitGutterAdd ctermbg=235 ctermfg=green
-hi GitGutterChange ctermbg=235 ctermfg=yellow
-hi GitGutterDelete ctermbg=235 ctermfg=red
-hi GitGutterChangeDelete ctermbg=235 ctermfg=yellow
+  " General colors
+  hi Normal ctermbg=234
+  hi VertSplit ctermfg=238 ctermbg=234
+  hi LineNr ctermfg=237 ctermbg=234
+  hi Search ctermbg=58 ctermfg=15
+  hi Default ctermfg=1 ctermbg=234
+  hi EndOfBuffer ctermfg=237 ctermbg=234
+  hi CursorLine ctermbg=236
 
-" Don't show color column
-hi clear ColorColumn
+  " Colors for gitgutter
+  hi clear SignColumn
+  hi SignColumn ctermbg=234
+  hi GitGutterAdd ctermbg=234 ctermfg=green
+  hi GitGutterChange ctermbg=234 ctermfg=yellow
+  hi GitGutterDelete ctermbg=234 ctermfg=red
+  hi GitGutterChangeDelete ctermbg=234 ctermfg=yellow
 
-" Color for characters beyond column 80
-hi TooManyChars ctermbg=238
+  " Don't show color column
+  hi clear ColorColumn
 
-" Colors for status line
-hi StatusLine ctermfg=235 ctermbg=245
-hi StatusLineNC ctermfg=235 ctermbg=235
+  " Color for characters beyond column 80
+  hi TooManyChars ctermbg=238
+
+  " Colors for status line
+  hi StatusLine ctermfg=235 ctermbg=242
+  hi StatusLineNC ctermfg=235 ctermbg=235
+endfunction
+
+call UpdateColors()
