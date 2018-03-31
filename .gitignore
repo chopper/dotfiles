@@ -2,12 +2,12 @@
 .DS_Store
 
 # Ignore all of emacs.d, which is mostly compiled/downloaded scripts.
-configs/emacs.d/*
+emacs/.emacs.d/*
 *.elc
 # But don't ignore these specific locations.
-!configs/emacs.d/eshell/alias
-!configs/emacs.d/lisp
-!configs/emacs.d/snippets
-!configs/emacs.d/init.el
-!configs/emacs.d/custom.el
-!configs/emacs.d/themes
+!emacs/.emacs.d/eshell/alias
+!emacs/.emacs.d/lisp
+!emacs/.emacs.d/snippets
+!emacs/.emacs.d/init.el
+!emacs/.emacs.d/custom.el
+!emacs/.emacs.d/themes
