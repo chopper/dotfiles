@@ -10,15 +10,15 @@ function git_prompt_info() {
   fi;
 }
 
-local ret_status="%(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)$reset_color%"
+local ret_status="%(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)%{$reset_color%}"
 
 PROMPT='
-%{$fg[white]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}  '
+%{$fg[white]%}%c%{$reset_color%} $(git_prompt_info)${ret_status} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")$reset_color"
-ZSH_THEME_GIT_PROMPT_DIRTY="$fg_bold[red]"
-ZSH_THEME_GIT_PROMPT_CLEAN="$fg_bold[green]"
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}"
 
 
 ## Show vi mode on the right of shell

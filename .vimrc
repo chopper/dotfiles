@@ -89,8 +89,14 @@ noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
 
-"Start an external command with a single bang
+" Start an external command with a single bang
 nnoremap ! :!
+
+" Fix common typos
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " Command to remove extra spaces at end of lines
 command! Rmspaces :%s/\s\+$//
