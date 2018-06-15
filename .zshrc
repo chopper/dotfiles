@@ -96,6 +96,9 @@ source $(brew --prefix nvm)/nvm.sh
 # Add Go bin directory to PATH
 export PATH=/Users/chopper/go/bin:$PATH
 
+# Set vim as the default editor
+export EDITOR="/usr/bin/vim"
+
 # Necessary for tmux to display color
 export TERM="screen-256color"
 
