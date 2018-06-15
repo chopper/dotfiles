@@ -30,6 +30,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'stephpy/vim-yaml'
 Plugin 'valloric/youcompleteme'
+Plugin 'elixir-editors/vim-elixir'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -73,6 +74,7 @@ set statusline=%=%P\ %f\ %m " status line format
 set fillchars=vert:\ ,stl:\ ,stlnc:\  " no fill chars for vertical split and status line
 set laststatus=2        " always show last status
 set noshowmode          " don't show '-- INSERT --' in status line
+set term=screen-256color
 
 " Makefiles need tabs
 autocmd FileType make setlocal noexpandtab
@@ -103,6 +105,9 @@ command! Rmspaces :%s/\s\+$//
 
 " Clear highlighted search results through ,/
 nnoremap <silent> ,/ :nohlsearch<CR>
+
+" Delete current buffer (Ctrl+C) without closing window
+nnoremap <C-c> :bp\|bd #<CR>
 
 " Tab between open buffers
 nnoremap <Tab> :bnext<CR>:redraw<CR>
@@ -172,7 +177,7 @@ function! UpdateColors()
   hi Normal ctermbg=234
   hi VertSplit ctermfg=238 ctermbg=234
   hi LineNr ctermfg=237 ctermbg=234
-  hi Search ctermbg=58 ctermfg=15
+  hi Search ctermbg=237 ctermfg=227
   hi Default ctermfg=1 ctermbg=234
   hi EndOfBuffer ctermfg=237 ctermbg=234
   hi CursorLine ctermbg=236
