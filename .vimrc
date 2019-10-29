@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " Let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Plugins
 Plugin 'tpope/vim-sensible'
@@ -29,8 +29,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'stephpy/vim-yaml'
-Plugin 'valloric/youcompleteme'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'janko/vim-test'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,6 +145,7 @@ let g:netrw_banner       = 0
 let g:netrw_keepdir      = 0
 let g:netrw_liststyle    = 1
 let g:netrw_sort_options = 'i'
+let g:netrw_list_hide    = '.DS_Store,.*\.swp$,.*\.pyc'
 
 " Configure gitgutter
 let g:gitgutter_max_signs = 2048
@@ -156,9 +157,17 @@ let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 15
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '(\.git\|bower_components\|node_modules\|tmp\|dist\|generated_js)$',
-    \ 'file': '\.(swp\|git)$',
+    \ 'file': '\.(swp\|git|pyc)$',
     \ 'link': '',
     \ }
+
+" test.vim (janko/vim-test)
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " Ignore the following file types / folders
 set wildignore+=*/tmp/*
